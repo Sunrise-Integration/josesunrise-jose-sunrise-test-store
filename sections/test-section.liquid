@@ -1,0 +1,45 @@
+<div>
+    <h3 class="section__title">
+        {{ section.settings.custom_text }}
+    </h3>
+    <p id="second-text"></p>
+    <h4>You have <span id="cart-text"></span> items in your cart</h4>
+    <div class="section__footer">
+        <button id="mistery-add_to_cart">
+            Add a Mistery box
+        </button>
+    </div>
+</div>
+<style>
+    {{ section.settings.custom_text_font | font_face }}
+    .section__title {
+        color: {{ section.settings.custom_text_color }};
+        font-family: {{ section.settings.custom_text_font.family }} , {{ section.settings.custom_text_font.fallback_families }};
+    }
+</style>
+
+{% schema %}
+{
+   "name":"Test Section",
+   "settings": [
+       {
+           "type": "text",
+           "id": "custom_text",
+           "label": "Custom Text",
+           "default": "My beauty text !"
+       },
+       {
+        "type": "color",
+        "id": "custom_text_color",
+        "label": "Title color",
+        "default": "#111213"
+      },
+      {
+        "type": "font_picker",
+        "id": "custom_text_font",
+        "label": "Title font",
+        "default": "helvetica_n4"
+      }
+   ]
+}
+{% endschema %}
